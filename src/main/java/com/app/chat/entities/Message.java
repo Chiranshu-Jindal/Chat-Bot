@@ -2,6 +2,8 @@ package com.app.chat.entities;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
@@ -24,7 +26,6 @@ public class Message {
 
 	@Id
 	private String id; // Added ID field for JPA entity
-
 	private String sender;
 	private String content;
 	private LocalDateTime timeStamp;
@@ -32,6 +33,7 @@ public class Message {
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	@JsonBackReference
+	@Autowired
 	private Room room; // Added relationship to Room
 
 	public Message(String sender, String content) {
@@ -40,13 +42,4 @@ public class Message {
 		this.timeStamp = LocalDateTime.now();
 	}
 
-	// Explicitly adding the setter for room
-	public void setRoom(Room room) {
-		this.room = room;
-	}
-
-//    // You might also want to add a getter if needed
-//    public Room getRoom() {
-//        return room;
-//    }
 }

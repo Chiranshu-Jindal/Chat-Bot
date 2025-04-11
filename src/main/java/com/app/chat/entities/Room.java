@@ -24,27 +24,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Room {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String roomId;
 
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference
 	private List<Message> messages = new ArrayList<>();
 
-//	public String getRoomId() {
-//		return roomId;
-//	}
-//
-	public void setRoomId(String roomId) {
-		this.roomId = roomId;
-	}
-
-	
-	// Explicit getter if Lombok isn't working
-	public List<Message> getMessages() {
-		return messages;
-	}
 }
