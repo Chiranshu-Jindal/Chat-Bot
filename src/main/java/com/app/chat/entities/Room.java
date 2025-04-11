@@ -3,6 +3,8 @@ package com.app.chat.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,22 +31,18 @@ public class Room {
 	private String roomId;
 
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference
 	private List<Message> messages = new ArrayList<>();
 
-	public String getRoomId() {
-		return roomId;
-	}
-
+//	public String getRoomId() {
+//		return roomId;
+//	}
+//
 	public void setRoomId(String roomId) {
 		this.roomId = roomId;
 	}
 
-	// Optional: Helper method to add messages
-	public void addMessage(Message message) {
-		messages.add(message);
-		message.setRoom(this);
-	}
-
+	
 	// Explicit getter if Lombok isn't working
 	public List<Message> getMessages() {
 		return messages;

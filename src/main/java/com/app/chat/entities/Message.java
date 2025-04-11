@@ -2,6 +2,8 @@ package com.app.chat.entities;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -29,6 +31,7 @@ public class Message {
 
 	@ManyToOne
 	@JoinColumn(name = "room_id")
+	@JsonBackReference
 	private Room room; // Added relationship to Room
 
 	public Message(String sender, String content) {
@@ -36,11 +39,12 @@ public class Message {
 		this.content = content;
 		this.timeStamp = LocalDateTime.now();
 	}
+
 	// Explicitly adding the setter for room
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-    
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
 //    // You might also want to add a getter if needed
 //    public Room getRoom() {
 //        return room;
