@@ -28,12 +28,15 @@ public class Message {
 	private String id; // Added ID field for JPA entity
 	private String sender;
 	private String content;
-	private LocalDateTime timeStamp;
-
+	private LocalDateTime timeStamp;	
+	
+	private String filePath; // Path to file (e.g., uploads/123.jpg)
+    private String fileName; // Original filename
+    private String fileType; // MIME type (e.g., image/png)
+    
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	@JsonBackReference
-	@Autowired
 	private Room room; // Added relationship to Room
 
 	public Message(String sender, String content) {
