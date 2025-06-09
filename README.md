@@ -44,13 +44,11 @@ Chat-Bot is a modern, real-time chat application that allows users to create or 
 
 ## Project Structure
 Chat-Bot/
-
+```
 ├── backend/ # Spring Boot backend source code
-
 ├── frontend/ # React frontend source code
-
 ├── README.md # Project documentation
-
+```
 ---
 
 ## Setup & Run
