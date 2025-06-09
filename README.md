@@ -67,24 +67,22 @@ Make sure you have the following installed:
 
 ### Running Backend
 ---
+```
 cd backend
-
 ./mvnw clean install
-
 ./mvnw spring-boot:run
-
+```
 The backend will start at: http://localhost:8080
 
 ---
 
 ### Running Frontend
 ---
+```
 cd frontend
-
 npm install
-
 npm run dev
-
+```
 The frontend will be available at: http://localhost:5173 (default Vite port)
 
 ---
